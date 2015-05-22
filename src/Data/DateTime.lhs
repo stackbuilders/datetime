@@ -1,3 +1,5 @@
+> {-# LANGUAGE CPP #-}
+
 > module Data.DateTime where
 
 > import Data.Fixed (div')
@@ -9,7 +11,11 @@
 > import Data.Time.LocalTime
 > -- import Database.HDBC
 > import Numeric (fromRat)
+
+> #if ! MIN_VERSION_time(1,5,0)
 > import System.Locale
+> #endif
+
 > import System.Time hiding (toClockTime)
 > import Test.QuickCheck
 
