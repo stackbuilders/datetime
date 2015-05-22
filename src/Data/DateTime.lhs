@@ -9,7 +9,6 @@
 > import Data.Time.Clock hiding (getCurrentTime)
 > import Data.Time.Format
 > import Data.Time.LocalTime
-> -- import Database.HDBC
 > import Numeric (fromRat)
 
 > #if ! MIN_VERSION_time(1,5,0)
@@ -31,12 +30,6 @@ the craziness of the Haskell standard library date and time functions.
 >     arbitrary       = do
 >         offset <- choose (0, 20000) :: Gen Float
 >         return . fromMJD' $ offset + fromRational startOfTimeMJD
-
-So that we can use our DateTime class with HDBC.
-
-> -- instance SqlType UTCTime where
-> --     toSql   = toSql . toClockTime
-> --     fromSql = fromClockTime . fromSql
 
 Defined here so that users don't need to know about Data.Time.Clock.
 
