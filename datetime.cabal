@@ -1,4 +1,4 @@
-name:                datetime
+name:                datetime-sb
 version:             0.2.1
 stability:           experimental
 Description:
@@ -8,8 +8,8 @@ Description:
 license:             GPL
 license-file:        COPYING
 author:              Eric Sessoms <nubgames@gmail.com>
-maintainer:          nubgames@gmail.com
-homepage:            http://github.com/esessoms/datetime
+maintainer:          hackage@stackbuilders.com
+homepage:            http://github.com/stackbuilders/datetime
 category:            Data
 synopsis:            Utilities to make Data.Time.* easier to use.
 cabal-version:       >= 1.2
