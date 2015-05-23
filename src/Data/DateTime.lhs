@@ -11,7 +11,7 @@
 > import Data.Time.LocalTime
 > import Numeric (fromRat)
 
-> #if ! MIN_VERSION_time(1,5,0)
+> #if !MIN_VERSION_time(1,5,0)
 > import System.Locale
 > #endif
 
