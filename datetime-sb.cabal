@@ -21,5 +21,6 @@ library
                      old-locale >= 1.0.0.1,
                      old-time >= 1.0.0.1,
                      time >= 1.1.2.2
+  extensions:       CPP
   exposed-modules:   Data.DateTime
   hs-source-dirs:    src
