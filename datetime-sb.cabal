@@ -1,5 +1,5 @@
 name:                datetime-sb
-version:             0.2.2
+version:             0.2.3
 stability:           experimental
 Description:
   Provides several utilities for easily converting among the
