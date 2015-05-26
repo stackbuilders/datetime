@@ -4,8 +4,7 @@ module Data.DateTime where
 
 import Data.Fixed (div')
 import Data.Function (on)
-import Data.Maybe (fromJust)
-import Data.Time.Calendar hiding (fromGregorian, toGregorian)
+
 import Data.Time.Clock hiding (getCurrentTime)
 import Data.Time.Format
 import Data.Time.LocalTime
@@ -16,7 +15,6 @@ import System.Locale
 #endif
 
 import System.Time hiding (toClockTime)
-import Test.QuickCheck
 
 import qualified Data.Time.Calendar as Calendar
 import qualified Data.Time.Clock as Clock
@@ -25,11 +23,6 @@ import qualified Data.Time.Clock as Clock
 -- the craziness of the Haskell standard library date and time functions.
 
 type DateTime = UTCTime
-
-instance Arbitrary UTCTime where
-    arbitrary       = do
-        offset <- choose (0, 20000) :: Gen Float
-        return . fromMJD' $ offset + fromRational startOfTimeMJD
 
 -- Defined here so that users don't need to know about Data.Time.Clock.
 
@@ -50,11 +43,6 @@ fromMJD = fromUniversalTime . ModJulianDate
 fromMJD' :: RealFloat a => a -> DateTime
 fromMJD' = fromMJD . realToFrac
 
-invariant f x = f x == x
-
-prop_MJD  = invariant $ fromMJD  . toMJD
-prop_MJD' = invariant $ fromMJD' . toMJD'
-
 -- Because UTCTime is opaque, we need to convert to UniversalTime in
 -- order to do anything with it, but these functions are mainly of
 -- interest internally.
@@ -64,8 +52,6 @@ toUniversalTime = localTimeToUT1 0 . utcToLocalTime utc
 
 fromUniversalTime :: UniversalTime -> DateTime
 fromUniversalTime = localTimeToUTC utc . ut1ToLocalTime 0
-
-prop_Universal = invariant $ fromUniversalTime . toUniversalTime
 
 -- Take apart a DateTime into pieces and parts.
 
@@ -99,7 +85,7 @@ fromGregorian year month day hours minutes seconds =
 
 toSeconds    :: DateTime -> Integer
 toSeconds dt = floor $
-    86400.0 * fromRational (toMJD dt - startOfTimeMJD)
+    (86400.0 :: Double) * fromRational (toMJD dt - startOfTimeMJD)
 
 fromSeconds   :: Integer -> DateTime
 fromSeconds s = fromMJD $
@@ -114,8 +100,6 @@ fromClockTime (TOD s _) = fromSeconds s
 startOfTime :: DateTime
 startOfTime = fromGregorian' 1970 1 1
 
-prop_StartOfTime _ = toSeconds startOfTime == 0
-
 startOfTimeMJD :: Rational
 startOfTimeMJD = toMJD startOfTime
 
@@ -128,18 +112,13 @@ toSqlString = formatDateTime sqlFormat
 fromSqlString :: String -> Maybe DateTime
 fromSqlString = parseDateTime sqlFormat
 
-prop_SqlString dt = (fromJust . fromSqlString . toSqlString $ dt') == dt'
-  where
-    Just dt' = fromSqlString . toSqlString $ dt
-
-prop_SqlStartOfTime _ = toSqlString startOfTime == "1970-01-01 00:00:00"
-
 formatDateTime :: String -> DateTime -> String
 formatDateTime = formatTime defaultTimeLocale
 
 parseDateTime :: String -> String -> Maybe DateTime
 parseDateTime = parseTime defaultTimeLocale
 
+sqlFormat :: String
 sqlFormat = iso8601DateFormat (Just "%T")
 
 -- Simple arithmetic.
