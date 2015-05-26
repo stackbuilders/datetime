@@ -15,6 +15,10 @@ synopsis:            Utilities to make Data.Time.* easier to use.
 cabal-version:       >= 1.10
 build-type:          Simple
 
+source-repository head
+  type:            git
+  location:        https://github.com/stackbuilders/datetime.git
+
 library
   build-depends:     base < 5,
                      old-locale >= 1.0.0.1,
