@@ -35,3 +35,11 @@ script:
  - cabal configure --enable-tests --enable-benchmarks -v2
  - cabal build
  - cabal test
+ - cabal check
+ - cabal sdist
+ - if [ -f "$SRC_TGZ" ]; then
+ -    cabal install --force-reinstalls "$SRC_TGZ";
+ - else
+ -    echo "expected '$SRC_TGZ' not found";
+ -    exit 1;
+ - fi
