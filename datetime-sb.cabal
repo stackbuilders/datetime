@@ -34,6 +34,7 @@ test-suite test
   type: exitcode-stdio-1.0
   hs-source-dirs: test
   main-is: Suite.hs
+  other-modules: Data.DateTimeTest
   build-depends:
       datetime-sb
 
