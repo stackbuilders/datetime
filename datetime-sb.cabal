@@ -1,7 +1,9 @@
 name:                datetime-sb
-version:             0.2.4
+version:             0.2.5
 stability:           experimental
 Description:
+  Please use <http://hackage.haskell.org/package/datetime> (>= 0.3.0) instead.
+
   Provides several utilities for easily converting among the
   various standard library Date and Time types, and for converting
   between these and standard external representations.
@@ -11,7 +13,7 @@ author:              Eric Sessoms <nubgames@gmail.com>
 maintainer:          hackage@stackbuilders.com
 homepage:            http://github.com/stackbuilders/datetime
 category:            Data
-synopsis:            Utilities to make Data.Time.* easier to use.
+synopsis:            Utilities to make Data.Time.* easier to use (deprecated)
 cabal-version:       >= 1.10
 build-type:          Simple
 
