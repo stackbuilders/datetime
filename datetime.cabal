@@ -1,5 +1,5 @@
 name:                datetime
-version:             0.3.0
+version:             0.3.1
 stability:           experimental
 Description:
   Provides several utilities for easily converting among the
@@ -11,7 +11,7 @@ author:              Eric Sessoms <nubgames@gmail.com>
 maintainer:          hackage@stackbuilders.com
 homepage:            http://github.com/stackbuilders/datetime
 category:            Data
-synopsis:            Utilities to make Data.Time.* easier to use (deprecated)
+synopsis:            Utilities to make Data.Time.* easier to use
 cabal-version:       >= 1.10
 build-type:          Simple
 
