@@ -1,9 +1,7 @@
-name:                datetime-sb
-version:             0.2.5
+name:                datetime
+version:             0.3.0
 stability:           experimental
 Description:
-  Please use <http://hackage.haskell.org/package/datetime> (>= 0.3.0) instead.
-
   Provides several utilities for easily converting among the
   various standard library Date and Time types, and for converting
   between these and standard external representations.
@@ -38,7 +36,7 @@ test-suite test
   main-is: Suite.hs
   other-modules: Data.DateTimeTest
   build-depends:
-      datetime-sb
+      datetime
 
       , old-locale >= 1.0.0.1
       , old-time >= 1.0.0.1
