@@ -11,7 +11,7 @@ author:              Eric Sessoms <nubgames@gmail.com>
 maintainer:          hackage@stackbuilders.com
 homepage:            http://github.com/stackbuilders/datetime
 category:            Data
-synopsis:            Utilities to make Data.Time.* easier to use.
+synopsis:            Utilities to make Data.Time.* easier to use (deprecated)
 cabal-version:       >= 1.10
 build-type:          Simple
 
