@@ -42,7 +42,7 @@ test-suite test
       , old-time >= 1.0.0.1
       , time >= 1.1.2.2
 
-      , base >=4.2 && <4.9
+      , base >=4.2 && <5
       , test-framework
       , HUnit
       , QuickCheck
