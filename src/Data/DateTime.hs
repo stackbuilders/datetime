@@ -116,7 +116,7 @@ formatDateTime :: String -> DateTime -> String
 formatDateTime = formatTime defaultTimeLocale
 
 parseDateTime :: String -> String -> Maybe DateTime
-parseDateTime = parseTime defaultTimeLocale
+parseDateTime = parseTimeM True defaultTimeLocale
 
 sqlFormat :: String
 sqlFormat = iso8601DateFormat (Just "%T")
