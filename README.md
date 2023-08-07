@@ -10,6 +10,9 @@ time, and it won't build on GHC 7.10. This fork by Stack Builders, on
 Hackage as datetime-sb, implements a minor patch so that it builds on
 GHC 7.10 and previous versions.
 
+## License
+
+GNU General Public License, see [the LICENSE file](COPYING).
 
 ---
 <img src="https://cdn.stackbuilders.com/media/images/Sb-supports.original.png" alt="Stack Builders" width="50%"></img>  
