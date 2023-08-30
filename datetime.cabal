@@ -23,7 +23,7 @@ library
   build-depends:     base < 5,
                      old-locale >= 1.0.0.1,
                      old-time >= 1.0.0.1,
-                     time >= 1.1.2.2
+                     time >= 1.5
   default-extensions:       CPP
   exposed-modules:   Data.DateTime
   hs-source-dirs:    src
@@ -40,9 +40,9 @@ test-suite test
 
       , old-locale >= 1.0.0.1
       , old-time >= 1.0.0.1
-      , time >= 1.1.2.2
+      , time >= 1.5
 
-      , base >=4.2 && <4.9
+      , base >=4.2 && <5
       , test-framework
       , HUnit
       , QuickCheck
